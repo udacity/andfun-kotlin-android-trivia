@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="ingame"
+            type="com.example.navigation.InGame" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorInGameBackground"
+            tools:context="com.example.navigation.InGame">
+
+            <ImageView
+                android:id="@+id/questionImage"
+                android:layout_width="362dp"
+                android:layout_height="225dp"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:layout_marginEnd="@dimen/horizontal_margin"
+                android:layout_marginBottom="@dimen/vertical_margin"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_android_category_simple"
+                app:layout_constraintBottom_toTopOf="@+id/questionText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"/>
+
+            <TextView
+                android:id="@+id/questionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="@dimen/vertical_margin"
+                android:fontFamily="sans-serif"
+                android:text="@{ingame.current.question}"
+                android:textColor="#196771"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/questionImage"
+                tools:text="What color is the Android mascot?" />
+
+            <RadioGroup
+                android:id="@+id/questionRadioGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:orientation="vertical"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/questionText">
+
+                <RadioButton
+                    android:id="@+id/firstAnswerRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@{ingame.answers[0]}"
+                    android:textSize="18sp"
+                    tools:text="Blue" />
+
+                <RadioButton
+                    android:id="@+id/secondAnswerRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@{ingame.answers[1]}"
+                    android:textSize="18sp"
+                    tools:text="Green" />
+
+                <RadioButton
+                    android:id="@+id/thirdAnswerRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@{ingame.answers[2]}"
+                    android:textSize="18sp"
+                    tools:text="Yellow" />
+
+                <RadioButton
+                    android:id="@+id/fourthAnswerRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{ingame.answers[3]}"
+                    android:textSize="18sp"
+                    tools:text="Red" />
+            </RadioGroup>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</layout>
