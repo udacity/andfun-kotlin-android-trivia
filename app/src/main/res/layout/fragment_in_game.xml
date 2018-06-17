@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="ingame"
             type="com.example.navigation.InGame" />
@@ -17,7 +18,7 @@
         <android.support.constraint.ConstraintLayout
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/colorInGameBackground"
             tools:context="com.example.navigation.InGame">
 
@@ -30,19 +31,19 @@
                 android:layout_marginEnd="@dimen/horizontal_margin"
                 android:layout_marginBottom="@dimen/vertical_margin"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_android_category_simple"
                 app:layout_constraintBottom_toTopOf="@+id/questionText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed"/>
+                app:layout_constraintVertical_chainStyle="packed"
+                app:srcCompat="@drawable/ic_android_category_simple" />
 
             <TextView
                 android:id="@+id/questionText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/vertical_margin"
                 android:layout_marginStart="32dp"
+                android:layout_marginTop="@dimen/vertical_margin"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="@dimen/vertical_margin"
                 android:fontFamily="sans-serif"
@@ -60,10 +61,10 @@
                 android:id="@+id/questionRadioGroup"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:orientation="vertical"
                 android:layout_marginStart="32dp"
+                android:layout_marginTop="@dimen/vertical_margin"
                 android:layout_marginEnd="32dp"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/questionText">
@@ -102,6 +103,7 @@
                     android:text="@{ingame.answers[3]}"
                     android:textSize="18sp"
                     tools:text="Red" />
+
             </RadioGroup>
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

@@ -12,12 +12,15 @@ import com.example.navigation.databinding.FragmentTitleScreenBinding
 class TitleScreenFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        // Inflate the layout for this fragment
         val binding: FragmentTitleScreenBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_title_screen, container, false)
+
         binding.title = this
-        binding.playButton.setOnClickListener { v: View ->
-            v.findNavController().navigate(TitleScreenFragmentDirections.Action_title_screen_to_in_game())
+        binding.playButton.setOnClickListener { view: View ->
+            view.findNavController().navigate(TitleScreenFragmentDirections.Action_title_screen_to_in_game())
         }
+
         return binding.root
     }
 }

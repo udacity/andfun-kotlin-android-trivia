@@ -10,69 +10,83 @@
         android:name="com.example.navigation.TitleScreenFragment"
         android:label="@string/android_trivia"
         tools:layout="@layout/fragment_title_screen">
+
         <action
             android:id="@+id/action_title_screen_to_in_game"
             app:destination="@id/in_game"
             app:enterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_left" />
+
     </fragment>
+
     <fragment
         android:id="@+id/in_game"
         android:name="com.example.navigation.InGame"
         android:label="@string/android_trivia"
-        tools:layout="@layout/fragment_in_game" >
+        tools:layout="@layout/fragment_in_game">
+
         <action
             android:id="@+id/action_in_game_to_resultsWinner"
-            app:popUpTo="@+id/title_screen"
             app:destination="@id/results_winner"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/title_screen" />
+
         <action
             android:id="@+id/action_in_game_to_gameOver"
-            app:popUpTo="@+id/title_screen"
             app:destination="@id/gameOverImage"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/title_screen" />
+
     </fragment>
+
     <fragment
         android:id="@+id/results_winner"
         android:name="com.example.navigation.ResultsWinnerFragment"
         android:label="@string/android_trivia"
-        tools:layout="@layout/fragment_results_winner"
-    >
+        tools:layout="@layout/fragment_results_winner">
+
         <action
             android:id="@+id/action_results_winner_to_match"
-            app:popUpToInclusive="false"
-            app:popUpTo="@+id/title_screen"
             app:destination="@id/in_game"
-            />
+            app:popUpTo="@+id/title_screen"
+            app:popUpToInclusive="false" />
+
         <argument
             android:name="numQuestions"
             app:type="integer" />
+
         <argument
             android:name="numCorrect"
             app:type="integer" />
+
     </fragment>
+
     <fragment
         android:id="@+id/gameOverImage"
         android:name="com.example.navigation.GameOverFragment"
         android:label="@string/android_trivia"
-        tools:layout="@layout/fragment_game_over"
-    >
+        tools:layout="@layout/fragment_game_over">
+
         <action
             android:id="@+id/action_game_over_to_title_screen"
-            app:popUpTo="@+id/title_screen"
             app:destination="@id/in_game"
+            app:popUpTo="@+id/title_screen"
             app:popUpToInclusive="false" />
+
     </fragment>
+
     <fragment
         android:id="@+id/rulesFragment"
         android:name="com.example.navigation.RulesFragment"
         android:label="@string/title_trivia_rules"
-        tools:layout="@layout/fragment_rules"/>
+        tools:layout="@layout/fragment_rules" />
+
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.navigation.AboutFragment"
         android:label="@string/title_about_trivia"
         tools:layout="@layout/fragment_about" />
+
 </navigation>

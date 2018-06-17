@@ -10,14 +10,17 @@ import androidx.navigation.findNavController
 import com.example.navigation.databinding.FragmentGameOverBinding
 
 class GameOverFragment : Fragment() {
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val binding: FragmentGameOverBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_game_over, container, false)
-        binding.tryAgainButton.setOnClickListener { v: View ->
-            v.findNavController().navigate(GameOverFragmentDirections.Action_game_over_to_title_screen())
+
+        binding.tryAgainButton.setOnClickListener { view: View ->
+            view.findNavController().navigate(GameOverFragmentDirections.Action_game_over_to_title_screen())
         }
+
         return binding.root
     }
 }

@@ -2,11 +2,11 @@
 
 buildscript {
     ext {
-        kotlin_version = '1.2.41'
+        kotlin_version = '1.2.50'
         archLifecycleVersion = '1.1.1'
         gradleVersion = '3.1.0'
         navigationVersion = '1.0.0-alpha02'
-        supportlibVersion = '28.0.0-alpha1'
+        supportlibVersion = '28.0.0-alpha3'
         dataBindingCompilerVersion = gradleVersion // Always need to be the same.
     }
     repositories {

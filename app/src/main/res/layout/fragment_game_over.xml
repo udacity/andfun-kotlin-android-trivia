@@ -28,8 +28,8 @@
             android:id="@+id/tryAgainButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/vertical_margin"
             android:layout_marginStart="@dimen/vertical_margin"
+            android:layout_marginTop="@dimen/vertical_margin"
             android:layout_marginEnd="@dimen/vertical_margin"
             android:paddingStart="@dimen/buttonPadding"
             android:paddingEnd="@dimen/buttonPadding"
@@ -41,5 +41,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gameOverImage" />
+
     </android.support.constraint.ConstraintLayout>
 </layout>

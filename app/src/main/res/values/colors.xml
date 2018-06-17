@@ -3,6 +3,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#7e53c5</color>
+
     <color name="colorYouWinDark">#35A571</color>
     <color name="colorInGameBackground">#7DFFFF</color>
     <color name="colorYouWinBackground">#B7F8C9</color>

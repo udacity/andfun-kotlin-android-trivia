@@ -10,104 +10,106 @@ import android.view.ViewGroup
 import android.widget.RadioGroup
 import androidx.navigation.findNavController
 import com.example.navigation.databinding.FragmentInGameBinding
+import com.example.navigation.model.Question
 import java.util.*
 
 class InGame : Fragment() {
-    data class Question(
-            val question: String,
-            val answers: Array<String>)
 
     // The first answer is the correct one.  We randomize the answers before showing the question.
     // All questions must have four answers.
-    val questions: Array<Question> = arrayOf(
+    private val questions: MutableList<Question> = mutableListOf(
             Question(question = "What is Android Jetpack?",
-                    answers = arrayOf("all of these", "tools", "documentation", "libraries")),
+                    answers = listOf("all of these", "tools", "documentation", "libraries")),
             Question(question = "Base class for Layout?",
-                    answers = arrayOf("ViewGroup", "ViewSet", "ViewCollection", "ViewRoot")),
+                    answers = listOf("ViewGroup", "ViewSet", "ViewCollection", "ViewRoot")),
             Question(question = "Layout for complex Screens?",
-                    answers = arrayOf("ConstraintLayout", "GridLayout", "LinearLayout", "FrameLayout")),
+                    answers = listOf("ConstraintLayout", "GridLayout", "LinearLayout", "FrameLayout")),
             Question(question = "Pushing structured data into a Layout?",
-                    answers = arrayOf("Data Binding", "Data Pushing", "Set Text", "OnClick")),
+                    answers = listOf("Data Binding", "Data Pushing", "Set Text", "OnClick")),
             Question(question = "Inflate layout in fragments?",
-                    answers = arrayOf("onCreateView", "onActivityCreated", "onCreateLayout", "onInflateLayout")),
+                    answers = listOf("onCreateView", "onActivityCreated", "onCreateLayout", "onInflateLayout")),
             Question(question = "Build system for Android?",
-                    answers = arrayOf("Gradle", "Graddle", "Grodle", "Groyle")),
+                    answers = listOf("Gradle", "Graddle", "Grodle", "Groyle")),
             Question(question = "Android vector format?",
-                    answers = arrayOf("VectorDrawable", "AndroidVectorDrawable", "DrawableVector", "AndroidVector")),
+                    answers = listOf("VectorDrawable", "AndroidVectorDrawable", "DrawableVector", "AndroidVector")),
             Question(question = "Android Navigation Component?",
-                    answers = arrayOf("NavController", "NavCentral", "NavMaster", "NavSwitcher")),
+                    answers = listOf("NavController", "NavCentral", "NavMaster", "NavSwitcher")),
             Question(question = "Registers app with launcher?",
-                    answers = arrayOf("intent-filter", "app-registry", "launcher-registry", "app-launcher")),
+                    answers = listOf("intent-filter", "app-registry", "launcher-registry", "app-launcher")),
             Question(question = "Mark a layout for Data Binding?",
-                    answers = arrayOf("<layout>", "<binding>", "<data-binding>", "<dbinding>"))
+                    answers = listOf("<layout>", "<binding>", "<data-binding>", "<dbinding>"))
     )
 
     lateinit var current: Question
-    lateinit var answers: Array<String>
+    lateinit var answers: List<String>
     private var questionIndex = 0
     private val numQuestions = Math.min((questions.size + 1) / 2, 3)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentInGameBinding>(
                 inflater, R.layout.fragment_in_game, container, false)
 
         randomizeQuestions()
+        setQuestion()
 
         // Bind this fragment class to the layout
         binding.ingame = this
-        binding.questionRadioGroup.setOnCheckedChangeListener { rg: RadioGroup, checked: Int ->
-            if (-1 != checked) {
-                var answerIndex = 0
-                when (checked) {
-                    R.id.secondAnswerRadioButton -> answerIndex = 1
-                    R.id.thirdAnswerRadioButton -> answerIndex = 2
-                    R.id.fourthAnswerRadioButton -> answerIndex = 3
-                }
-                if (answers[answerIndex] == current.answers[0]) {
-                    questionIndex++
-                    if (questionIndex < numQuestions) {
-                        current = questions[questionIndex]
-                        setQuestion()
-                        binding.questionRadioGroup.clearCheck()
-                        binding.invalidateAll()
-                    } else {
-                        rg.findNavController().navigate(InGameDirections.action_in_game_to_resultsWinner(numQuestions, questionIndex))
-                    }
+        binding.questionRadioGroup.setOnCheckedChangeListener { radioGroup: RadioGroup, checkedId: Int ->
+            if (checkedId == -1) {
+                return@setOnCheckedChangeListener
+            }
+
+            var answerIndex = 0
+            when (checkedId) {
+                R.id.secondAnswerRadioButton -> answerIndex = 1
+                R.id.thirdAnswerRadioButton -> answerIndex = 2
+                R.id.fourthAnswerRadioButton -> answerIndex = 3
+            }
+
+            if (answers[answerIndex] == current.answers[0]) {
+                questionIndex++
+                if (questionIndex < numQuestions) {
+                    current = questions[questionIndex]
+                    setQuestion()
+                    binding.questionRadioGroup.clearCheck()
+                    binding.invalidateAll()
                 } else {
-                    rg.findNavController().navigate(InGameDirections.action_in_game_to_gameOver())
+                    radioGroup.findNavController().navigate(InGameDirections.action_in_game_to_resultsWinner(numQuestions, questionIndex))
                 }
+            } else {
+                radioGroup.findNavController().navigate(InGameDirections.action_in_game_to_gameOver())
             }
         }
+
         return binding.root
-    }
-
-    // Classic Fisher-Yates shuffle
-    private fun <T> randomizeArray(array: Array<T>): Array<T> {
-        val random = Random()
-        val last = array.size
-        for (i in 0 until last) {
-            val next = random.nextInt(last - i) + i
-            val temp = array[i]
-            array[i] = array[next]
-            array[next] = temp
-        }
-        return array
-    }
-
-    private fun setQuestion() {
-        current = questions[questionIndex]
-        // randomize the answers into a copy of the array
-        answers = randomizeArray(current.answers.clone())
-        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
     }
 
     private fun randomizeQuestions() {
         randomizeArray(questions)
         // set the current question
         questionIndex = 0
-        setQuestion()
+    }
+
+    // Classic Fisher-Yates shuffle
+    private fun <T> randomizeArray(list: MutableList<T>): List<T> {
+        val random = Random()
+        val last = list.size
+        for (i in 0 until last) {
+            val next = random.nextInt(last - i) + i
+            val temp = list[i]
+            list[i] = list[next]
+            list[next] = temp
+        }
+
+        return list
+    }
+
+    private fun setQuestion() {
+        current = questions[questionIndex]
+        // randomize the answers into a copy of the array
+        answers = randomizeArray(current.answers.toMutableList())
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
     }
 }
