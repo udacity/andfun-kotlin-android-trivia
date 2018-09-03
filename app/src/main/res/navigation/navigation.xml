@@ -34,17 +34,23 @@
         android:name="com.example.android.navigation.GameFragment"
         android:label="@string/android_trivia"
         tools:layout="@layout/fragment_game">
-        <!-- TODO (03) Create an Action connecting the GameFragment to the GameWonFragment
-             Go to the navigation editor and hover over the GameFragment.  Click on the
-             connection point and drag the action line to the GameWonFragment.
-        -->
-        <!-- TODO (04) Create an Action connecting the GameFragment to the GameOverFragment
-             Go to the navigation editor and hover over the GameFragment.  Click on the
-             connection point and drag the action line to the GameOverFragment.
-        -->
+        <action
+            android:id="@+id/action_gameFragment_to_gameOverFragment"
+            app:destination="@id/gameOverFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_gameWonFragment"
+            app:destination="@id/gameWonFragment" />
     </fragment>
-    <!-- TODO (01) Add the GameWonFragment to the Navigation Graph
-             Go to the navigation editor and click the add button.  Add fragment_game_won. -->
-    <!-- TODO (02) Add the GameOverFragment to the Navigation Graph
-             Go to the navigation editor and click the add button.  Add fragment_game_over. -->
+    <fragment
+        android:id="@+id/gameWonFragment"
+        android:name="com.example.android.navigation.GameWonFragment"
+        android:label="@string/android_trivia"
+        tools:layout="@layout/fragment_game_won">
+    </fragment>
+    <fragment
+        android:id="@+id/gameOverFragment"
+        android:name="com.example.android.navigation.GameOverFragment"
+        android:label="@string/android_trivia"
+        tools:layout="@layout/fragment_game_over">
+    </fragment>
 </navigation>
