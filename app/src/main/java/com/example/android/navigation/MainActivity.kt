@@ -35,6 +35,8 @@ class MainActivity : AppCompatActivity() {
         val navController = this.findNavController(R.id.myNavHostFragment)
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
+        // TODO (01) call navController.addOnDestinationChangedListener with an anonymous function
+        // TODO (02) in the anonymous function unlock/lock the drawer layout if the id matches the start destination
         NavigationUI.setupWithNavController(binding.navView, navController)
     }
 
