@@ -65,4 +65,6 @@
             app:destination="@id/gameFragment"
             app:popUpTo="@+id/titleFragment" />
     </fragment>
+    <!-- TODO (01) Add the AboutFragment to the Navigation Graph
+         Go to the navigation editor and click the add button.  Add fragment_about. -->
 </navigation>
