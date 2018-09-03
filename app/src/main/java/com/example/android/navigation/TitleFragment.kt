@@ -17,14 +17,18 @@
 package com.example.android.navigation
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import com.example.android.navigation.databinding.ActivityMainBinding
+import androidx.fragment.app.Fragment
+import com.example.android.navigation.databinding.FragmentTitleBinding
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        @Suppress("UNUSED_VARIABLE")
-        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+class TitleFragment : Fragment() {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        val binding: FragmentTitleBinding = DataBindingUtil.inflate(
+                inflater, R.layout.fragment_title, container, false)
+        return binding.root
     }
 }
