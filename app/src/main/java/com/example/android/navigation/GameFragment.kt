@@ -16,13 +16,14 @@
 
 package com.example.android.navigation
 
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.android.navigation.databinding.FragmentGameBinding
 
 class GameFragment : Fragment() {
@@ -123,9 +124,4 @@ class GameFragment : Fragment() {
         answers.shuffle()
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
     }
-
-    // TODO (07) Add the Game Fragment to the Navigation Graph
-    // Go to the navigation.xml file and select the design tab
-    // Click the add icon with the + on it to add a new destination to the graph
-    // Select fragment_game to add this fragment to the graph
 }
