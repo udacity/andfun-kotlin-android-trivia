@@ -27,4 +27,7 @@ class MainActivity : AppCompatActivity() {
         @Suppress("UNUSED_VARIABLE")
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
     }
+    // TODO (02) Add the Navigation Graph to the Project
+    // Right click on the res directory and select New > Android resource file
+    // Select Navigation as the resource type and give it the file name navigation
 }

@@ -46,6 +46,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version_kotlin"
 
@@ -57,4 +58,5 @@ dependencies {
 
     // Material Design
     implementation "com.google.android.material:material:$version_material"
+    // TODO (01) Add the dependencies for navigation fragment ktx and navigation UI ktx
 }

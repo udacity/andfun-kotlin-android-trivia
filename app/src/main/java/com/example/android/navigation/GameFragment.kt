@@ -123,4 +123,9 @@ class GameFragment : Fragment() {
         answers.shuffle()
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
     }
+
+    // TODO (07) Add the Game Fragment to the Navigation Graph
+    // Go to the navigation.xml file and select the design tab
+    // Click the add icon with the + on it to add a new destination to the graph
+    // Select fragment_game to add this fragment to the graph
 }
