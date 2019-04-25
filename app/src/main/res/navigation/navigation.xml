@@ -71,6 +71,7 @@
             app:destination="@id/gameFragment"
             app:popUpTo="@+id/titleFragment" />
     </fragment>
+    <!-- TODO (01) Add the RulesFragment to the navigation graph -->
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.android.navigation.AboutFragment"
