@@ -32,8 +32,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         @Suppress("UNUSED_VARIABLE")
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-        // TODO (01) Find the navController from myNavHostFragment
+        // (01) Find the navController from myNavHostFragment
         // Since we're using KTX, you can call this.findNavController
+        val navController = this.findNavController(R.id.myNavHostFragment)
         // TODO (02) Link the navController to our ActionBar
         // By calling NavigationUI.setupActionBarWithNavController
     }
