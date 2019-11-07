@@ -33,7 +33,7 @@
     <fragment
         android:id="@+id/gameOverFragment2"
         android:name="com.example.android.navigation.GameOverFragment"
-        android:label="fragment_game_over"
+        android:label="Game over!"
         tools:layout="@layout/fragment_game_over">
         <action
             android:id="@+id/action_gameOverFragment2_to_gameFragment"
@@ -44,13 +44,19 @@
     <fragment
         android:id="@+id/gameWonFragment"
         android:name="com.example.android.navigation.GameWonFragment"
-        android:label="fragment_game_won"
+        android:label="Game won!"
         tools:layout="@layout/fragment_game_won">
         <action
             android:id="@+id/action_gameWonFragment_to_titleFragment"
             app:destination="@id/titleFragment"
             app:popUpTo="@+id/titleFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="numQuestions"
+            app:argType="integer" />
+        <argument
+            android:name="numCorrect"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
