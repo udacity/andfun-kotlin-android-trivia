@@ -20,15 +20,17 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'androidx.navigation.safeargs'
+
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
     dataBinding {
         enabled = true
     }
     defaultConfig {
         applicationId 'com.example.android.navigation'
         minSdkVersion 19
-        targetSdkVersion 28
+        targetSdkVersion 30
         vectorDrawables.useSupportLibrary = true
         versionCode 1
         versionName "1.0"
@@ -46,6 +48,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version_kotlin"
 
@@ -57,4 +60,8 @@ dependencies {
 
     // Material Design
     implementation "com.google.android.material:material:$version_material"
+
+    // Navigation
+    implementation "android.arch.navigation:navigation-fragment-ktx:$version_navigation"
+    implementation "android.arch.navigation:navigation-ui-ktx:$version_navigation"
 }
