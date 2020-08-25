@@ -24,8 +24,8 @@ apply plugin: 'androidx.navigation.safeargs'
 
 android {
     compileSdkVersion 30
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding true
     }
     defaultConfig {
         applicationId 'com.example.android.navigation'
