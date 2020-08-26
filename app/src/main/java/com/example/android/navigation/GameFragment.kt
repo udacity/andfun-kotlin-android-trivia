@@ -44,7 +44,7 @@ class GameFragment : Fragment() {
             Question(text = "Pushing structured data into a Layout?",
                     answers = listOf("Data Binding", "Data Pushing", "Set Text", "OnClick")),
             Question(text = "Inflate layout in fragments?",
-                    answers = listOf("onCreateView", "onActivityCreated", "onCreateLayout", "onInflateLayout")),
+                    answers = listOf("onCreateView", "onViewCreated", "onCreateLayout", "onInflateLayout")),
             Question(text = "Build system for Android?",
                     answers = listOf("Gradle", "Graddle", "Grodle", "Groyle")),
             Question(text = "Android vector format?",
