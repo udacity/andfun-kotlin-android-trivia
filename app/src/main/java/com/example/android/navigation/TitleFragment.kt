@@ -33,7 +33,7 @@ import com.example.android.navigation.databinding.FragmentTitleBinding
 class TitleFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val binding: FragmentTitleBinding = DataBindingUtil.inflate(
+        val binding = DataBindingUtil.inflate<FragmentTitleBinding>(
                 inflater, R.layout.fragment_title, container, false)
         binding.playButton.setOnClickListener { v: View ->
             v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
