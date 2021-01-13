@@ -16,6 +16,7 @@
 
 package com.example.android.navigation
 
+<<<<<<< Updated upstream
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import androidx.databinding.DataBindingUtil
@@ -29,16 +30,21 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+=======
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.os.Bundle
+import android.view.*
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+>>>>>>> Stashed changes
 import androidx.navigation.findNavController
 import com.example.android.navigation.databinding.FragmentGameWonBinding
-import android.content.pm.ResolveInfo
-import android.content.pm.PackageManager
-
 
 
 class GameWonFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         val binding: FragmentGameWonBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_game_won, container, false)
@@ -50,6 +56,7 @@ class GameWonFragment : Fragment() {
         return binding.root
     }
 
+<<<<<<< Updated upstream
     private fun getShareIntent() : Intent {
         val args = GameWonFragmentArgs.fromBundle(requireArguments())
         return ShareCompat.IntentBuilder.from(activity!!)
@@ -69,6 +76,14 @@ class GameWonFragment : Fragment() {
         if (null == getShareIntent().resolveActivity(requireActivity().packageManager)) {
             // hide the menu item if it doesn't resolve
             menu.findItem(R.id.share)?.isVisible = false
+=======
+    @SuppressLint("QueryPermissionsNeeded")
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.winner_menu, menu)
+        if (null == getShareIntent().resolveActivity(activity!!.packageManager)) {
+            menu.findItem(R.id.share).isVisible = false
+>>>>>>> Stashed changes
         }
     }
 
@@ -77,5 +92,25 @@ class GameWonFragment : Fragment() {
             R.id.share -> shareSuccess()
         }
         return super.onOptionsItemSelected(item)
+<<<<<<< Updated upstream
+=======
+    }
+
+    private fun getShareIntent(): Intent {
+        val args = GameWonFragmentArgs.fromBundle(arguments!!)
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.setType("text/plain")
+                .putExtra(
+                        Intent.EXTRA_TEXT,
+                        getString(R.string.share_success_text,
+                                args.numCorrect,
+                                args.numQuestions)
+                )
+        return shareIntent
+    }
+
+    private fun shareSuccess() {
+        startActivity(getShareIntent())
+>>>>>>> Stashed changes
     }
 }

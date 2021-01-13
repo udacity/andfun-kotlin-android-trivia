@@ -30,6 +30,10 @@ import com.example.android.navigation.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var appBarConfiguration : AppBarConfiguration
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
@@ -50,6 +54,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.myNavHostFragment)
+<<<<<<< Updated upstream
         return NavigationUI.navigateUp(navController, appBarConfiguration)
+=======
+        return NavigationUI.navigateUp(navController, drawerLayout)
+>>>>>>> Stashed changes
     }
 }

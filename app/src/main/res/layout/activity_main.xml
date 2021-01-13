@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <fragment
                 android:id="@+id/myNavHostFragment"
                 android:name="androidx.navigation.fragment.NavHostFragment"
@@ -41,6 +42,10 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             app:headerLayout="@layout/nav_header"
+<<<<<<< Updated upstream
             app:menu="@menu/navdrawer_menu" />
+=======
+            app:menu="@menu/nav_drawer_menu" />
+>>>>>>> Stashed changes
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>
