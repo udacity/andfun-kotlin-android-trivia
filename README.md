@@ -19,7 +19,7 @@ Each code repository in this class has a chain of commits that looks like this:
 
 ![listofcommits](https://d17h27t6h515a5.cloudfront.net/topher/2017/March/58befe2e_listofcommits/listofcommits.png)
 
-These commits show every step you'll take to create the app. Each commit contains instructions for completing the that step.
+These commits show every step you'll take to create the app. Each commit contains instructions for completing that step.
 
 Each commit also has a **branch** associated with it of the same name as the commit message, seen below:
 
