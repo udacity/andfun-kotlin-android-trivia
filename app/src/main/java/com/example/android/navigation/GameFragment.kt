@@ -93,7 +93,6 @@ class GameFragment : Fragment() {
                     questionIndex++
                     // Advance to the next question
                     if (questionIndex < numQuestions) {
-                        currentQuestion = questions[questionIndex]
                         setQuestion()
                         binding.invalidateAll()
                     } else {
