@@ -17,29 +17,55 @@
 package com.example.android.navigation
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.android.navigation.databinding.FragmentTitleBinding
 
 class TitleFragment : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        val binding: FragmentTitleBinding = DataBindingUtil.inflate(
-                inflater, R.layout.fragment_title, container, false)
-        // TODO (09) Call binding.playButton.setOnClickListener and navigate to the gameFragment
-        // Use Navigation.createNavigateOnClickListener with
-        // R.id.action_titleFragment_to_gameFragment
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val binding: FragmentTitleBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_title,container,false)
+        binding.playButton.setOnClickListener (
+            Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment)
+        )
+
+//        binding.playButton.setOnClickListener { view:View ->
+//            Navigation.findNavController(view).navigate(R.id.action_titleFragment_to_gameFragment)
+//            view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
+//        }
+
+        setHasOptionsMenu(true)
         return binding.root
     }
-    // TODO (06) Add the Title Fragment to the Navigation Graph
-    // Go to the navigation.xml file and select the design tab
-    // Click the add icon with the + on it to add a new destination to the graph
-    // Select fragment_title to add this fragment to the graph as the start destination
 
-    // TODO (08) Connect the Title and Game Fragments with an Action
-    // In the navigation editor, hover over the titleFragment.  Click on the circular connection
-    // point and drag to gameFragment to create the Action
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.overflow_menu,menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item,requireView().findNavController())
+                || super.onOptionsItemSelected(item)
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
