@@ -27,11 +27,7 @@
         tools:layout="@layout/fragment_title">
         <action
             android:id="@+id/action_titleFragment_to_gameFragment"
-            app:destination="@id/gameFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:destination="@id/gameFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -41,20 +37,11 @@
         <action
             android:id="@+id/action_gameFragment_to_gameOverFragment"
             app:destination="@id/gameOverFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@+id/gameFragment"
             app:popUpToInclusive="true" />
-        />
         <action
             android:id="@+id/action_gameFragment_to_gameWonFragment"
             app:destination="@id/gameWonFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
-            app:popEnterAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_out_left"
             app:popUpTo="@+id/gameFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -63,19 +50,9 @@
         android:name="com.example.android.navigation.GameWonFragment"
         android:label="@string/android_trivia"
         tools:layout="@layout/fragment_game_won">
-        <argument
-            android:name="numQuestions"
-            app:argType="integer" />
-        <argument
-            android:name="numCorrect"
-            app:argType="integer" />
         <action
             android:id="@+id/action_gameWonFragment_to_gameFragment"
             app:destination="@id/gameFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@+id/titleFragment"/>
     </fragment>
     <fragment
@@ -86,20 +63,13 @@
         <action
             android:id="@+id/action_gameOverFragment_to_gameFragment"
             app:destination="@id/gameFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@+id/titleFragment" />
     </fragment>
     <fragment
-        android:id="@+id/rulesFragment"
-        android:name="com.example.android.navigation.RulesFragment"
-        android:label="@string/title_trivia_rules"
-        tools:layout="@layout/fragment_rules" />
-    <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.android.navigation.AboutFragment"
-        android:label="@string/title_about_trivia"
+        android:label="fragment_about"
         tools:layout="@layout/fragment_about" />
+    <!-- TODO (01) Add the AboutFragment to the Navigation Graph
+         Go to the navigation editor and click the add button.  Add fragment_about. -->
 </navigation>
