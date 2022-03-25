@@ -34,7 +34,7 @@ class GameOverFragment : Fragment() {
         binding.tryAgainButton.setOnClickListener { view: View ->
             // TODO (09) Replace action ID with actionGameOverFragmentToGameFragment
             // From GameOverFragmentDirections
-            view.findNavController().navigate(R.id.action_gameOverFragment_to_gameFragment)
+            view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToGameFragment())
         }
         return binding.root
     }
