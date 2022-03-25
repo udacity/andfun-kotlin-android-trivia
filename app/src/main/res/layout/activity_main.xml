@@ -27,10 +27,12 @@
             <!-- TODO (04) Add app:navGraph pointing to the @navigation/navigation resource -->
             <!-- TODO (05) Add app:defaultNavHost = true -->
             <fragment
-                android:id="@+id/titleFragment"
-                android:name="com.example.android.navigation.TitleFragment"
+                android:id="@+id/myNavHostFragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/navigation"/>
         </LinearLayout>
 
 </layout>
