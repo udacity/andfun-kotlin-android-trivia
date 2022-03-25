@@ -65,6 +65,11 @@
             app:destination="@id/gameFragment"
             app:popUpTo="@+id/titleFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.android.navigation.AboutFragment"
+        android:label="@string/android_trivia"
+        tools:layout="@layout/fragment_about" />
     <!-- TODO (01) Add the AboutFragment to the Navigation Graph
          Go to the navigation editor and click the add button.  Add fragment_about. -->
 </navigation>
