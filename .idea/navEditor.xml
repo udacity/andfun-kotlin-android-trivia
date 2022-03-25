@@ -40,7 +40,19 @@
                         <option name="myPosition">
                           <Point>
                             <option name="x" value="499" />
-                            <option name="y" value="20" />
+                            <option name="y" value="-40" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="gameWonFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="500" />
+                            <option name="y" value="293" />
                           </Point>
                         </option>
                       </LayoutPositions>
