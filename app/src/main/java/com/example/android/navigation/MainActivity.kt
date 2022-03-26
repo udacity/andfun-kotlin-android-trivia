@@ -19,28 +19,28 @@ package com.example.android.navigation
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.android.navigation.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    // TODO (05) Add private lateinit vars drawerLayout and appBarConfiguration
+    private lateinit var drawerLayout: DrawerLayout
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         @Suppress("UNUSED_VARIABLE")
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-        // TODO (06) Initialize drawerLayout var from binding
+        drawerLayout = binding.drawerLayout
 
         val navController = this.findNavController(R.id.myNavHostFragment)
-        // TODO (07) Add the DrawerLayout as the second parameter to setupActionBarWithNavController
-        NavigationUI.setupActionBarWithNavController(this, navController)
-        // TODO (08) Create appBarConfiguration with the navController.graph and drawerLayout
-        // TODO (09) Hook the navigation UI up to the navigation view. (navView)
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)  //Create appBarConfiguration with the navController.graph and drawerLayout
+        NavigationUI.setupWithNavController(binding.navView, navController)  // Hook the navigation UI up to the navigation view. (navView)
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.myNavHostFragment)
-        // TODO (10) Replace navController.navigateUp with NavigationUI.navigateUp with drawerLayout param
-        return navController.navigateUp()
+        //Replace navController.navigateUp with NavigationUI.navigateUp with drawerLayout param
+        return NavigationUI.navigateUp(navController, drawerLayout)
     }
 }
