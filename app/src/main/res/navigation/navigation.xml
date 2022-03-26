@@ -47,7 +47,6 @@
             app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@+id/gameFragment"
             app:popUpToInclusive="true" />
-        />
         <action
             android:id="@+id/action_gameFragment_to_gameWonFragment"
             app:destination="@id/gameWonFragment"
