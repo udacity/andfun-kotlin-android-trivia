@@ -27,13 +27,13 @@
         tools:layout="@layout/fragment_title">
         <action
             android:id="@+id/action_titleFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
-        <!-- TODO (03) Add the sliding animation to the titleFragment_to_gameFragment action
-             Go to the navigation editor and select slide_in_left for Enter and Pop Enter
-             and slide_in_right for the Exit and Pop Exit animations -->
-        <!-- TODO (02) Create slide_in_left animation in new file
-             Do this by right clicking on the anim folder with
-             New->Animation resource file -->
+            app:destination="@id/gameFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -43,23 +43,23 @@
         <action
             android:id="@+id/action_gameFragment_to_gameOverFragment"
             app:destination="@id/gameOverFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
             app:popUpTo="@+id/gameFragment"
             app:popUpToInclusive="true" />
-        />
-        <!-- TODO (01) Create fade_in animation in new file
-             Do this by right clicking on the anim folder with
-             New->Animation resource file -->
-        <!-- TODO (07) Add the fade in/out animation to the gameFragment to gameOverFragment action
-            Go to the navigation editor and select fade_in for Enter and Pop Enter
-            and fade_out for the Exit and Pop Exit animations -->
+
         <action
             android:id="@+id/action_gameFragment_to_gameWonFragment"
             app:destination="@id/gameWonFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@+id/gameFragment"
             app:popUpToInclusive="true" />
-        <!-- TODO (04) Add the sliding animation to the gameFragment to gameWonFragment action
-             Go to the navigation editor and select slide_in_left for Enter and Pop Enter
-             and slide_in_right for the Exit and Pop Exit animations -->
+
     </fragment>
     <fragment
         android:id="@+id/gameWonFragment"
@@ -69,16 +69,18 @@
         <action
             android:id="@+id/action_gameWonFragment_to_gameFragment"
             app:destination="@id/gameFragment"
-            app:popUpTo="@+id/titleFragment"/>
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/titleFragment" />
         <argument
             android:name="numQuestions"
             app:argType="integer" />
         <argument
             android:name="numCorrect"
             app:argType="integer" />
-        <!-- TODO (05) Add the sliding animation to the gameWonFragment to gameFragment action
-             Go to the navigation editor and select slide_in_left for Enter and Pop Enter
-             and slide_in_right for the Exit and Pop Exit animations -->
+
     </fragment>
     <fragment
         android:id="@+id/gameOverFragment"
@@ -88,10 +90,12 @@
         <action
             android:id="@+id/action_gameOverFragment_to_gameFragment"
             app:destination="@id/gameFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@+id/titleFragment" />
-        <!-- TODO (06) Add the sliding animation to the gameOverFragment to gameFragment action
-             Go to the navigation editor and select slide_in_left for Enter and Pop Enter
-             and slide_in_right for the Exit and Pop Exit animations -->
+
     </fragment>
     <fragment
         android:id="@+id/rulesFragment"
