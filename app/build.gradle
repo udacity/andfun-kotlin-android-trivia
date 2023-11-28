@@ -23,14 +23,22 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 34
     buildFeatures {
         dataBinding true
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
     defaultConfig {
         applicationId 'com.example.android.navigation'
-        minSdkVersion 19
-        targetSdkVersion 30
+        minSdkVersion 21
+        //noinspection EditedTargetSdkVersion
+        targetSdkVersion 33
         vectorDrawables.useSupportLibrary = true
         versionCode 1
         versionName "1.0"
@@ -43,24 +51,37 @@ android {
     }
     productFlavors {
     }
+    namespace 'com.example.android.navigation'
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version_kotlin"
-
-    // Constraint Layout
-    implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
-
     // Core
     implementation "androidx.core:core:$version_core"
+
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
 
     // Material Design
     implementation "com.google.android.material:material:$version_material"
 
-    // Navigation
-    implementation "android.arch.navigation:navigation-fragment-ktx:$version_navigation"
-    implementation "android.arch.navigation:navigation-ui-ktx:$version_navigation"
+    def nav_version = "2.7.0"
+
+    // Java language implementation
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+
+    // Kotlin
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // Feature module Support
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+
+    // Testing Navigation
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+
+    // Jetpack Compose Integration
+    implementation "androidx.navigation:navigation-compose:$nav_version"
+
 }
