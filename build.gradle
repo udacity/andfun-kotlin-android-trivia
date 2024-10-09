@@ -1,0 +1,30 @@
+buildscript {
+    ext {
+        version_kotlin = "1.8.22" // Update to a compatible Kotlin version
+        version_core = "1.8.0"
+        version_constraint_layout = "2.1.4"
+        version_material = "1.5.0"
+        version_navigation = "2.5.1"
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$version_kotlin"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$version_navigation"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
